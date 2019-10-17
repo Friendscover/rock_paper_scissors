@@ -5,13 +5,90 @@
 </head>
 <body>
     <script>
+
     function computerPlay()
     {
+        let rollChoice = (Math.random() * 3);
+        rollChoice = Math.floor(rollChoice);
+        console.log(rollChoice)
+        switch(rollChoice)
+        {
+            case 0:
+            var rock = "rock";
+            return rock;
+            
+            case 1:
+            var paper = "paper";
+            return paper;
+
+            case 2: 
+            var scissor = "scissor";
+            return scissor;
+        }
+    }
+
+    function playRound(playerSelection, computerSelection)
+    {
+        if (playerSelection == "rock")
+        {
+            switch(computerSelection)
+            {
+                case "paper":
+                return "lost";
+
+                case "scissor":
+                return "won";
+            }
+        }
+        else if (playerSelection == "paper")
+        {
+            switch(computerSelection)
+            {
+                case "rock":
+                return "lost";
+
+                case "scissor":
+                return "won";
+            }
+        }
+        else if (playerSelection == "scissor")
+        {
+            switch(computerSelection)
+            {
+                case "rock":
+                return "lost";
+
+                case "paper":
+                return "won";
+            }
+        }
+        else
+        {
+            return "draw";
+        }
         
     }
 
-    console.log("Hello there!");
-    
+    function game()
+    {
+        let playerSelection = "rock";
+        let computerSelection = computerPlay();
+        let theWinner = playRound(playerSelection, computerSelection);
+
+        if(theWinner == "won")
+        {
+            console.log(playerSelection + " beats " +  computerSelection + "! You won!");
+        }   
+        else if(theWinner == "lost")
+        {
+            console.log(computerSelection + " beats " + playerSelection + "! Sorry you lost!");
+        }
+        else 
+        {
+            console.log("Both selected a " + playerSelection + "! It is a draw!");
+        }
+    }
+
     </script>
 </body>
 </html>
