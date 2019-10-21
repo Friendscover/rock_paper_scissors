@@ -4,6 +4,7 @@
     <title>A Game to Play RPS against the PC</title>
 </head>
 <body>
+    <h1> Open the Console to play the game!</h1>
     <script>
 
     function computerPlay()
@@ -69,23 +70,27 @@
         
     }
 
-    function game()
+    function game(roundsToPlay)
     {
-        let playerSelection = "rock";
-        let computerSelection = computerPlay();
-        let theWinner = playRound(playerSelection, computerSelection);
+        for (i = 0; i < roundsToPlay; i++)
+        {
+            let playerSelection = window.prompt("Input either rock, paper or scissor to play against the CPU!");
+            playerSelection = playerSelection.toLowerCase();
+            let computerSelection = computerPlay();
+            let theWinner = playRound(playerSelection, computerSelection);
 
-        if(theWinner == "won")
-        {
-            console.log(playerSelection + " beats " +  computerSelection + "! You won!");
-        }   
-        else if(theWinner == "lost")
-        {
-            console.log(computerSelection + " beats " + playerSelection + "! Sorry you lost!");
-        }
-        else 
-        {
-            console.log("Both selected a " + playerSelection + "! It is a draw!");
+            if(theWinner == "won")
+            {
+                console.log(playerSelection + " beats " +  computerSelection + "! You won!");
+            }   
+            else if(theWinner == "lost")
+            {
+                console.log(computerSelection + " beats " + playerSelection + "! Sorry you lost!");
+            }
+            else
+            {
+                console.log("Both selected a " + playerSelection + "! It is a draw!");
+            }
         }
     }
 
