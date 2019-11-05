@@ -4,96 +4,18 @@
     <title>A Game to Play RPS against the PC</title>
 </head>
 <body>
-    <h1> Open the Console to play the game!</h1>
-    <script>
-
-    function computerPlay()
-    {
-        let rollChoice = (Math.random() * 3);
-        rollChoice = Math.floor(rollChoice);
-        console.log(rollChoice)
-        switch(rollChoice)
-        {
-            case 0:
-            var rock = "rock";
-            return rock;
-            
-            case 1:
-            var paper = "paper";
-            return paper;
-
-            case 2: 
-            var scissor = "scissor";
-            return scissor;
-        }
-    }
-
-    function playRound(playerSelection, computerSelection)
-    {
-        if (playerSelection == "rock")
-        {
-            switch(computerSelection)
-            {
-                case "paper":
-                return "lost";
-
-                case "scissor":
-                return "won";
-            }
-        }
-        else if (playerSelection == "paper")
-        {
-            switch(computerSelection)
-            {
-                case "rock":
-                return "lost";
-
-                case "scissor":
-                return "won";
-            }
-        }
-        else if (playerSelection == "scissor")
-        {
-            switch(computerSelection)
-            {
-                case "rock":
-                return "lost";
-
-                case "paper":
-                return "won";
-            }
-        }
-        else
-        {
-            return "draw";
-        }
-        
-    }
-
-    function game(roundsToPlay)
-    {
-        for (i = 0; i < roundsToPlay; i++)
-        {
-            let playerSelection = window.prompt("Input either rock, paper or scissor to play against the CPU!");
-            playerSelection = playerSelection.toLowerCase();
-            let computerSelection = computerPlay();
-            let theWinner = playRound(playerSelection, computerSelection);
-
-            if(theWinner == "won")
-            {
-                console.log(playerSelection + " beats " +  computerSelection + "! You won!");
-            }   
-            else if(theWinner == "lost")
-            {
-                console.log(computerSelection + " beats " + playerSelection + "! Sorry you lost!");
-            }
-            else
-            {
-                console.log("Both selected a " + playerSelection + "! It is a draw!");
-            }
-        }
-    }
-
+    <div class="gameUI">
+        <h1> Click the buttons to play against the AI!</h1>
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissor">Scissors</button>
+    </div>
+    <div class="resultdisplay">
+    </div>
+    <div class="counterdisplay">
+    </div>
+    
+    <script src="./scripts/rps_game.js">
     </script>
 </body>
 </html>
